@@ -51,18 +51,10 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
         String habitDataToShow = "Habit Data";
 
-        String[] projection = {
-                HabitEntry._ID,
-                HabitEntry.HABIT_NAME,
-                HabitEntry.HOW_MANY_DAYS
-        };
-
-        //Cursor cursor = db.rawQuery("SELECT * FROM "+ HabitEntry.TABLE_NAME,null);
-        Cursor cursor = db.query(HabitEntry.TABLE_NAME,
-                                    projection,null,null,null,null,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ HabitEntry.TABLE_NAME,null);
 
         try {
-           // setContentView(R.id.c);
+
             TextView showmsg = (TextView)findViewById(R.id.msgTextView);
             showmsg.setText("Number of rows in database : "+ cursor.getCount());
 
@@ -78,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 String currentHabit = cursor.getString(habitNameColomIndex);
                 String days = cursor.getString(habitTimeColomIndex);
                 habitDataToShow = habitDataToShow + "\n\n" +currentId + ".  "+"Habit : "+ currentHabit +".  From Days : "+days;
-              //  habitData.append("\n\n" +currentId + ".  "+"Habit : "+ currentHabit +".  From Days : "+days);
             }
             habitData.setText(habitDataToShow);
         }
