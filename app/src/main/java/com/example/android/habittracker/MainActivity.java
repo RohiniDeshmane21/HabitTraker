@@ -51,8 +51,11 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
         String habitDataToShow = "Habit Data";
 
-        Cursor cursor = db.rawQuery("SELECT * FROM "+ HabitEntry.TABLE_NAME,null);
+        Cursor cursor = db.query(HabitEntry.TABLE_NAME, null, null, null,
+                null, null, null);
 
+        //  Cursor cursor = db.rawQuery("SELECT * FROM "+ HabitEntry.TABLE_NAME,null);
+        
         try {
 
             TextView showmsg = (TextView)findViewById(R.id.msgTextView);
