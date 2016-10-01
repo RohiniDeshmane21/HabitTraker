@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 null, null, null);
 
         //  Cursor cursor = db.rawQuery("SELECT * FROM "+ HabitEntry.TABLE_NAME,null);
-        
+
         try {
 
             TextView showmsg = (TextView)findViewById(R.id.msgTextView);
